@@ -7,6 +7,10 @@ import 'screens/prompts_screen.dart';
 import 'screens/features_screen.dart';
 import 'screens/chat_screen.dart';
 import 'screens/playground_screen.dart';
+import 'screens/coder_screen.dart';
+import 'screens/apps_screen.dart';
+import 'screens/quiz_screen.dart';
+import 'screens/ai_agents_screen.dart';
 import 'screens/splash_screen.dart';
 
 class AppThemes {
@@ -100,6 +104,10 @@ class ThemeConfig {
       NavItem(icon: Icons.star_outline,          label: 'Fonctionnalités', color: Color(0xFF64B5F6)),
       NavItem(icon: Icons.chat_bubble_outline,   label: 'Chat DeepSeek',   color: Color(0xFF1976D2)),
       NavItem(icon: Icons.science_outlined,      label: 'Playground',      color: Color(0xFF64B5F6)),
+      NavItem(icon: Icons.terminal_outlined,     label: 'Coder & Local',   color: Color(0xFF1976D2)),
+      NavItem(icon: Icons.apps_outlined,         label: 'Applications',    color: Color(0xFF64B5F6)),
+      NavItem(icon: Icons.quiz_outlined,         label: 'Quiz',            color: Color(0xFF1976D2)),
+      NavItem(icon: Icons.hub_outlined,           label: 'IA & Agents',     color: Color(0xFF64B5F6)),
     ],
   );
 
@@ -121,6 +129,10 @@ class ThemeConfig {
       NavItem(icon: Icons.star_outline,          label: 'Fonctionnalités', color: Color(0xFF64B5F6)),
       NavItem(icon: Icons.chat_bubble_outline,   label: 'Chat DeepSeek',   color: Color(0xFFEF5350)),
       NavItem(icon: Icons.science_outlined,      label: 'Playground',      color: Color(0xFF64B5F6)),
+      NavItem(icon: Icons.terminal_outlined,     label: 'Coder & Local',   color: Color(0xFFEF5350)),
+      NavItem(icon: Icons.apps_outlined,         label: 'Applications',    color: Color(0xFF64B5F6)),
+      NavItem(icon: Icons.quiz_outlined,         label: 'Quiz',            color: Color(0xFFEF5350)),
+      NavItem(icon: Icons.hub_outlined,           label: 'IA & Agents',     color: Color(0xFF64B5F6)),
     ],
   );
 }
@@ -165,6 +177,10 @@ class _MainScaffoldState extends State<MainScaffold> {
     FeaturesScreen(),
     ChatScreen(),
     PlaygroundScreen(),
+    CoderScreen(),
+    AppsScreen(),
+    QuizScreen(),
+    AiAgentsScreen(),
   ];
 
   static const _titles = [
@@ -175,6 +191,10 @@ class _MainScaffoldState extends State<MainScaffold> {
     'Fonctionnalités',
     'Chat DeepSeek',
     'Playground',
+    'Coder & Local',
+    'Applications',
+    'Quiz',
+    'IA & Agents',
   ];
 
   ThemeConfig get _cfg =>
@@ -261,14 +281,14 @@ class _MainScaffoldState extends State<MainScaffold> {
                   mainAxisAlignment: MainAxisAlignment.end,
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    Container(
-                      width: 48,
-                      height: 48,
-                      decoration: BoxDecoration(
-                        color: Colors.white.withValues(alpha: 0.15),
-                        borderRadius: BorderRadius.circular(12),
+                    ClipRRect(
+                      borderRadius: BorderRadius.circular(16),
+                      child: Image.asset(
+                        'assets/images/mon_logo.jpeg',
+                        width: 110,
+                        height: 170,
+                        fit: BoxFit.cover,
                       ),
-                      child: const Icon(Icons.psychology_outlined, color: Colors.white, size: 28),
                     ),
                     const SizedBox(height: 12),
                     const Text('DeepSeek Guide',
